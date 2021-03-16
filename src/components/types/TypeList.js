@@ -13,29 +13,30 @@ export const TypeList = (props) => {
 console.log("This is types", types)
   return (
     <article className="types">
-      <header>
-        <button
-          className="btn btn-2 btn-sep icon-create"
-          onClick={() => {
-            props.history.push({ pathname: "/types" });
-          }}
-        >
-          This is the Types Page
-        </button>
-      </header>
+      <h1>
+        Welcome to Let's Breathe
+      </h1>
       {types.map((type) => {
         return (
           <section key={`game--${type.id}`} className="game">
-            <div className="game__title">
-              {type.name} Name of Breath 
-            </div>
+            <h1 className="game__title">
+            Name of Breath - {type.name} 
+            </h1>
             <div className="game__players">
-              {type.inhale} seconds needed to inhale
+              Inhale for {type.inhale} seconds
             </div>
             <div className="game__skillLevel">
-              Secons to exhale {type.exhale}
+              Hold breath for {type.hold} seconds
             </div>
-            <div className="game__skillLevel">Seconds to hold {type.hold}</div>
+            <div className="game__skillLevel">Exhale for {type.exhale} seconds</div>
+            <button
+          className="btn btn-2 btn-sep icon-create"
+          onClick={() => {
+            props.history.push({ pathname: `/types/${type.id}` });
+          }}
+        >
+          Select this breath 
+        </button>
           </section>
         );
       })}
