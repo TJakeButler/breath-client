@@ -1,6 +1,8 @@
 
 import React from "react"
 import { Route } from "react-router-dom"
+import { TypeProvider } from "./types/TypeProvider.js"
+import { TypeList } from "./types/TypeList.js"
 
 export const ApplicationViews = () => {
     return <>
@@ -8,7 +10,13 @@ export const ApplicationViews = () => {
             margin: "5rem 2rem",
             backgroundColor: "lightgoldenrodyellow"
         }}>
-            Application views
+            <TypeProvider>
+                <Route exact path="/" render={(props) => {
+                    return <TypeList {...props} />
+                }}>
+                    
+                </Route>
+            </TypeProvider>
         </main>
     </>
 }
