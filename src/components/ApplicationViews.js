@@ -5,6 +5,8 @@ import { TypeProvider } from "./types/TypeProvider.js"
 import { TypeList } from "./types/TypeList.js"
 import { JournalProvider } from "./journals/JournalProvider.js"
 import { JournalList } from "./journals/JournalList.js"
+import { LogProvider } from "./logs/LogProvider.js"
+import { LogList } from "./logs/LogList.js"
 import { Relax } from "./relax/Relax.js"
 
 export const ApplicationViews = () => {
@@ -36,6 +38,14 @@ export const ApplicationViews = () => {
                     
                 </Route>
             </JournalProvider>
+
+            <LogProvider>
+                <Route exact path="/logs" render={(props) => {
+                    return <LogList {...props} />
+                }}>
+                    
+                </Route>
+            </LogProvider>
         </main>
     </>
 }
