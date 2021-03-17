@@ -8,6 +8,7 @@ import { JournalList } from "./journals/JournalList.js"
 import { LogProvider } from "./logs/LogProvider.js"
 import { LogList } from "./logs/LogList.js"
 import { Relax } from "./relax/Relax.js"
+import { TimeProvider } from "./times/TimeProvider.js"
 
 export const ApplicationViews = () => {
     return <>
@@ -22,7 +23,8 @@ export const ApplicationViews = () => {
                     
                 </Route>
             </TypeProvider>
-
+                <TimeProvider>
+            <LogProvider>  
             <TypeProvider>
                 <Route exact path="/types/:id(\d+)" render={(props) => {
                     return <Relax {...props} />
@@ -30,6 +32,8 @@ export const ApplicationViews = () => {
                     
                 </Route>
             </TypeProvider>
+            </LogProvider>  
+            </TimeProvider>
 
             <JournalProvider>
                 <Route exact path="/journals" render={(props) => {

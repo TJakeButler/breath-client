@@ -10,11 +10,12 @@ export const TypeList = (props) => {
   useEffect(() => {
     getTypes();
   }, []);
+  
 console.log("This is types", types)
   return (
     <article className="types">
       <h1>
-        Welcome to Let's Breathe
+        This is Type List
       </h1>
       {types.map((type) => {
         return (
