@@ -10,7 +10,19 @@ export const LogProvider = (props) => {
     console.log("This is logs", logs)
     console.log("This is singleLog", singleLog)
 
-    
+    const createLog = (log) => {
+        return fetch(`http://localhost:8000/logs`, { 
+        method: "POST",    
+        headers:{
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        }, body: JSON.stringify(log)
+    })
+        .then(setLogs)
+        
+    }
+
     const getLogs = () => {
         return fetch("http://localhost:8000/logs", {
             headers:{
@@ -32,7 +44,7 @@ export const LogProvider = (props) => {
       };
 
     return (
-        <LogContext.Provider value={{ logs, getLogs, setLogs, singleLog, getSingleLog,  setSingleLog }} >
+        <LogContext.Provider value={{ logs, getLogs, setLogs, singleLog, getSingleLog,  setSingleLog,createLog }} >
             { props.children }
         </LogContext.Provider>
     )
