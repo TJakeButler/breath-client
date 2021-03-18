@@ -3,7 +3,7 @@ import React, { useState } from "react"
 export const LogContext = React.createContext()
 
 export const LogProvider = (props) => {
-    const [ logs, setLogs ] = useState([]);
+    const [ logs, setLogs ] = useState([{type:{}, user:{}, journal:{}, time:{}}]);
     const [singleLog, setSingleLog] = useState({});
 
     console.log("This is props", props)

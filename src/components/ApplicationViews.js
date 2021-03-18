@@ -43,6 +43,8 @@ export const ApplicationViews = () => {
                 </Route>
             </JournalProvider>
 
+
+            <TypeProvider>
             <LogProvider>
                 <Route exact path="/logs" render={(props) => {
                     return <LogList {...props} />
@@ -50,6 +52,7 @@ export const ApplicationViews = () => {
                     
                 </Route>
             </LogProvider>
+            </TypeProvider>
         </main>
     </>
 }
