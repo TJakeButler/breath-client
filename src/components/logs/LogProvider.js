@@ -6,9 +6,9 @@ export const LogProvider = (props) => {
     const [ logs, setLogs ] = useState([{type:{}, user:{}, journal:{}, time:{}}]);
     const [singleLog, setSingleLog] = useState({});
 
-    console.log("This is props", props)
-    console.log("This is logs", logs)
-    console.log("This is singleLog", singleLog)
+    // console.log("This is props", props)
+    // console.log("This is logs", logs)
+    // console.log("This is singleLog", singleLog)
 
     const createLog = (log) => {
         return fetch(`http://localhost:8000/logs`, { 
