@@ -23,7 +23,9 @@ export const ApplicationViews = () => {
                     
                 </Route>
             </TypeProvider>
-                <TimeProvider>
+
+            <JournalProvider>  
+            <TimeProvider>
             <LogProvider>  
             <TypeProvider>
                 <Route exact path="/types/:id(\d+)" render={(props) => {
@@ -34,6 +36,7 @@ export const ApplicationViews = () => {
             </TypeProvider>
             </LogProvider>  
             </TimeProvider>
+            </JournalProvider>  
 
             <JournalProvider>
                 <Route exact path="/journals" render={(props) => {
