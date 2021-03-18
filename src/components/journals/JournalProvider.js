@@ -19,18 +19,18 @@ export const JournalProvider = (props) => {
         .then(setJournals)
     }
     
-    // const createGame = (game) => {
-    //     return fetch(`http://localhost:8000/games`, { 
-    //     method: "POST",    
-    //     headers:{
-    //         "Content-Type": "application/json",
-    //         "Accept": "application/json",
-    //         "Authorization": `Token ${localStorage.getItem("lu_token")}`
-    //     }, body: JSON.stringify(game)
-    // })
-    //     .then(setGames)
+    const createJournal = (journal) => {
+        return fetch(`http://localhost:8000/journals`, { 
+        method: "POST",    
+        headers:{
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        }, body: JSON.stringify(journals)
+    })
+        .then(setJournals)
         
-    // }
+    }
     
     // const getGameTypes = () => {
         
@@ -43,7 +43,7 @@ export const JournalProvider = (props) => {
     // }
 
     return (
-        <JournalContext.Provider value={{ journals, getJournals, setJournals }} >
+        <JournalContext.Provider value={{ journals, getJournals, setJournals, createJournal }} >
             { props.children }
         </JournalContext.Provider>
     )
