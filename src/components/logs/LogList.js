@@ -35,7 +35,7 @@ console.log("This is TYPES", types)
             {/* User Id of created log - {log.user.id}  */}
             </h1>
             <div className="game__players">
-              Your journal entry: {log.journal.entry}
+              Your journal entry: {log.journal && log.journal.entry}
             </div>
             <div className="game__skillLevel">
               Date log was created on {log.date}

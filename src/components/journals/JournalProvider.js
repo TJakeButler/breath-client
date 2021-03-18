@@ -5,8 +5,8 @@ export const JournalContext = React.createContext()
 export const JournalProvider = (props) => {
     const [ journals, setJournals ] = useState([])
 
-    console.log("This is props", props)
-    console.log("This is journals", journals)
+    // console.log("This is props", props)
+    // console.log("This is journals", journals)
 
     
     const getJournals = () => {

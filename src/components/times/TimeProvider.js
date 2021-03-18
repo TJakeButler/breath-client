@@ -6,8 +6,8 @@ export const TimeProvider = (props) => {
     const [ times, setTimes ] = useState([]);
     const [singleTime, setSingleTime] = useState({});
 
-    console.log("This is props", props)
-    console.log("This is times", times)
+    // console.log("This is props", props)
+    // console.log("This is times", times)
 
     
     const getTimes = () => {
