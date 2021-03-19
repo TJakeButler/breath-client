@@ -72,28 +72,11 @@ export const Relax = (props) => {
     <button onClick={() => { {changeLogState(1)}}}>1:00</button>
     <button onClick={() => { {changeLogState(2)}}}>2:00</button>
     <button onClick={() => { {changeLogState(3)}}}>3:00</button>
-    <fieldset>
-          <div className="form-group">
-            <label htmlFor="label">Journal Entry for this breathing session: </label>
-            <input type="text" name="label" required autoFocus className="form-control"
-              placeholder="Tag name"
-              onChange={handleControlledInputChange}
-              value={currentJournal.entry}
-            />
-          </div>
-        </fieldset>
-
-        <button type="submit"
-          onClick={evt => {
-            evt.preventDefault()
-            createJournal()
-            }}
-          className="btn btn-primary">
-          Create Journal Entry
-        </button>
+    
 
                 <button type="submit"
                 onClick={evt => {
+                  
                     // Prevent form from being submitted
                     evt.preventDefault()
                     const log = {
@@ -103,58 +86,15 @@ export const Relax = (props) => {
                         date: currentLog.date,
                         time: currentLog.time
                     }
+                    
                     // Send POST request to your API
                     createLog(log)
-                        .then(() => history.push("/logs"))
+                        .then(res => res.json())
+                        .then((log) => history.push(`/journals/forms/${log.id}`))
+                        .then(console.log(log))
                 }}
                 className="btn btn-primary">Create Breath Log</button>
     
     </>
   )
   }
-
-
-//   import React, { useContext, useState } from "react"
-// import { TagContext } from "./TagProvider"
-// export const TagForm = (props) => {
-//     const {addTag} = useContext(TagContext)
-//     const [tag, setTag] = useState({})
-//     const handleControlledInputChange = (event) => {
-//             const newTag = Object.assign({}, tag)
-//             newTag[event.target.name] = event.target.value
-//             setTag(newTag)
-//         }
-//     const constructNewTag = () => {
-//             addTag({label: tag.label})
-//             .then(() => props.history.push("/tags"))
-//       }
-//     return (
-//     <>
-//         <form className="tagForm">
-//         <h2 className="tagForm__title">{editMode ? "Update Tag" : "Add Tag"}</h2>
-//         <fieldset>
-//           <div className="form-group">
-//             <label htmlFor="label">Tag label: </label>
-//             <input type="text" name="label" required autoFocus className="form-control"
-//               placeholder="Tag name"
-//               onChange={handleControlledInputChange}
-//               value={tag.label}
-//             />
-//           </div>
-//         </fieldset>
-//         <button type="submit"
-//           onClick={evt => {
-//             evt.preventDefault()
-//             constructNewTag()
-//             }}
-//           className="btn btn-primary">
-//           Make tag
-//         </button>
-//         <button onClick={() => {
-//                     props.history.push(`/tags`)
-//                 }}>Back
-//         </button>
-//       </form>
-//     </>
-//     )
-// }

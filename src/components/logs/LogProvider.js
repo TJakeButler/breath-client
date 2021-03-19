@@ -19,7 +19,7 @@ export const LogProvider = (props) => {
             "Authorization": `Token ${localStorage.getItem("lu_token")}`
         }, body: JSON.stringify(log)
     })
-        .then(setLogs)
+        // .then(setLogs)
         
     }
 
@@ -40,7 +40,7 @@ export const LogProvider = (props) => {
           },
         })
           .then((res) => res.json())
-          .then(setSingleLog);
+        //   .then(setSingleLog);
       };
 
     return (

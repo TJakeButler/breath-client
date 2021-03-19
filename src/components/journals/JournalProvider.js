@@ -26,9 +26,9 @@ export const JournalProvider = (props) => {
             "Content-Type": "application/json",
             "Accept": "application/json",
             "Authorization": `Token ${localStorage.getItem("lu_token")}`
-        }, body: JSON.stringify(journals)
+        }, body: JSON.stringify(journal)
     })
-        .then(setJournals)
+        .then(getJournals)
         
     }
     
