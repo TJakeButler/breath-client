@@ -9,6 +9,7 @@ import { LogProvider } from "./logs/LogProvider.js"
 import { LogList } from "./logs/LogList.js"
 import { Relax } from "./relax/Relax.js"
 import { TimeProvider } from "./times/TimeProvider.js"
+import { JournalForm } from "./journals/JournalForm.js"
 
 export const ApplicationViews = () => {
     return <>
@@ -38,13 +39,21 @@ export const ApplicationViews = () => {
             </TimeProvider>
             </JournalProvider>  
 
+            <LogProvider>
             <JournalProvider>
                 <Route exact path="/journals" render={(props) => {
                     return <JournalList {...props} />
                 }}>
                     
                 </Route>
+                <Route exact path="/journals/forms/:id(\d+)" render={(props) => {
+                    return <JournalForm {...props}></JournalForm> 
+                }}>
+                    
+                </Route>
+                
             </JournalProvider>
+            </LogProvider>    
 
 
             <TypeProvider>
