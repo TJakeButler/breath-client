@@ -27,7 +27,7 @@ console.log("This is TYPES", types)
         This is your log of past breaths
       </h1>
       {logs.map((log) => {
-        console.log(log)
+        // console.log("This is mapping over the logs", log)
         return (
           <section key={`game--${log.id}`} className="game">
             <h1 className="game__title">
@@ -35,13 +35,16 @@ console.log("This is TYPES", types)
             {/* User Id of created log - {log.user.id}  */}
             </h1>
             <div className="game__players">
-              Your journal entry: {log.journal && log.journal.entry}
+              Your journal entry: {log.journal}
             </div>
             <div className="game__skillLevel">
               Date log was created on {log.date}
             </div>
             <div className="game__skillLevel">Amount of time breathing was done for {log.time.minutes} minutes</div>
-            
+
+            <button className = "editLog" onClick = {() => {
+                            history.push(`/logs/forms/${log.id}`)
+                        }}>Edit Journal</button>
           </section>
         );
       })}
