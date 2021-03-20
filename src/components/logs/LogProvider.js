@@ -9,6 +9,17 @@ export const LogProvider = (props) => {
     // console.log("This is props", props)
     // console.log("This is logs", logs)
     // console.log("This is singleLog", singleLog)
+    const deleteLog = (logId) => {
+        return fetch(`http://localhost:8000/logs/${logId}`, {
+            method: "DELETE",
+            headers: {
+                "Authorization": `Token ${localStorage.getItem("lu_token")}`
+            }
+        })
+        .then(getLogs)
+    }
+
+
     const editLog = (log) => {
         return fetch(`http://localhost:8000/logs/${log.id}`, {
             method: "PUT",
@@ -57,7 +68,7 @@ export const LogProvider = (props) => {
       };
 
     return (
-        <LogContext.Provider value={{ logs, getLogs, setLogs, singleLog, getSingleLog, setSingleLog, createLog, editLog }} >
+        <LogContext.Provider value={{ logs, getLogs, setLogs, singleLog, getSingleLog, setSingleLog, createLog, editLog, deleteLog }} >
             { props.children }
         </LogContext.Provider>
     )

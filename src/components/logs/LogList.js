@@ -7,7 +7,7 @@ import { TypeContext } from "../types/TypeProvider.js";
 
 export const LogList = (props) => {
   const history = useHistory()
-  const { logs, getLogs, setLogs, createLog } = useContext(LogContext);
+  const { logs, getLogs, setLogs, createLog, deleteLog } = useContext(LogContext);
   const { types, getTypes, setTypes } = useContext(TypeContext);
   
   useEffect(() => {
@@ -27,7 +27,7 @@ console.log("This is TYPES", types)
         This is your log of past breaths
       </h1>
       {logs.map((log) => {
-        // console.log("This is mapping over the logs", log)
+        console.log("This is mapping over the logs", log.id)
         return (
           <section key={`game--${log.id}`} className="game">
             <h1 className="game__title">
@@ -41,6 +41,10 @@ console.log("This is TYPES", types)
               Date log was created on {log.date}
             </div>
             <div className="game__skillLevel">Amount of time breathing was done for {log.time.minutes} minutes</div>
+
+            <button className = "deleteLog" onClick = {() => {
+                            deleteLog(log.id)
+                        }}>Delete Log</button>
 
             <button className = "editLog" onClick = {() => {
                             history.push(`/logs/forms/${log.id}`)
