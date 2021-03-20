@@ -25,7 +25,7 @@ export const Relax = (props) => {
   const [currentLog, setCurrentLog] = useState({
     
     type: parseInt(params.id),
-    journal: null,
+    journal: "",
     date: "",
     time: 1
 })
@@ -44,6 +44,7 @@ export const Relax = (props) => {
     getJournals()
   }, []);
   console.log("This is journals entries", journals)
+  console.log("This is journals SingleType!!!", singleType)
   // console.log("This is params", params.id)
   console.log("This is currentLog", currentLog)
   // console.log("This is props", props)
@@ -82,7 +83,7 @@ export const Relax = (props) => {
                     const log = {
                         user: parseInt(currentLog.user),
                         type: parseInt(currentLog.type),
-                        journal: parseInt(currentLog.journal), 
+                        journal: currentLog.journal, 
                         date: currentLog.date,
                         time: currentLog.time
                     }
@@ -90,8 +91,8 @@ export const Relax = (props) => {
                     // Send POST request to your API
                     createLog(log)
                         .then(res => res.json())
-                        .then((log) => history.push(`/journals/forms/${log.id}`))
-                        .then(console.log(log))
+                        .then((log) => history.push(`/logs`))
+                        .then(console.log("Create Log Button Clicked", log))
                 }}
                 className="btn btn-primary">Create Breath Log</button>
     

@@ -6,16 +6,17 @@ import { LogContext } from "../logs/LogProvider.js"
 export const JournalForm = (props) => {
     const history = useHistory()
     const { createJournal } = useContext(JournalContext)
-    // const { getSingleLog } = useContext(LogContext)
+    const { getSingleLog, editLog } = useContext(LogContext)
     const [currentJournal, setCurrentJournal] = useState({
         entry: ""
     })
 
-    // useEffect(() => {
-    //     getSingleLog(props.match.params.id)
-    //     .then(setCurrentJournal)
+    useEffect(() => {
+        getSingleLog(props.match.params.id)
+        .then(setCurrentJournal)
         
-    // }, [])
+    }, [])
+    console.log("This is your current Journal!!", currentJournal)
 
     const changeJournalState = (domEvent) => {
         const newJournalState = Object.assign({}, currentJournal)
@@ -23,25 +24,29 @@ export const JournalForm = (props) => {
         setCurrentJournal(newJournalState)
     }
     return (
-        <form className = "companyForm">
-            <h2 className = "companyForm__title">How did you feel about that breath session</h2>
+        <form className = "journalForm">
+            <h2 className = "journalForm__title">How did you feel about that breath session</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor = "entry">Entry:</label>
-                    <textarea name = "entry" required className = "form-control" value = {currentJournal.entry} onChange={changeJournalState} />
+                    <label htmlFor = "journal">Entry:</label>
+                    <textarea name = "journal" required className = "form-control" value = {currentJournal.journal} onChange={changeJournalState} />
                 </div>
             </fieldset>
             <button type = "submit"
                 onClick = {evt => {
                     evt.preventDefault()
                     const journal = {
-                        entry: currentJournal.entry,
+                        id: parseInt(props.match.params.id),
+                        time: currentJournal.time.id,
+                        type: currentJournal.type.id,
+                        user: currentJournal.user.id,
+                        journal: currentJournal.journal,
                         
                     }
-                    createJournal(journal)
+                    editLog(journal)
                         .then(() => history.push("/logs"))
                 }}
-                className= "companySaveButton">Add Journal Entry</button>
+                className= "journalSaveButton">Add Journal Entry</button>
         </form>
     )
 }
