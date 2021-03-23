@@ -11,7 +11,7 @@ export const TypeList = (props) => {
     getTypes();
   }, []);
   
-console.log("This is types", types)
+
   return (
     <article className="types">
       <h1>
