@@ -13,7 +13,7 @@ export const LogProvider = (props) => {
         return fetch(`http://localhost:8000/logs/${logId}`, {
             method: "DELETE",
             headers: {
-                "Authorization": `Token ${localStorage.getItem("lu_token")}`
+                "Authorization": `Token ${localStorage.getItem("app_token")}`
             }
         })
         .then(getLogs)
@@ -25,7 +25,7 @@ export const LogProvider = (props) => {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Token ${localStorage.getItem("lu_token")}`
+                "Authorization": `Token ${localStorage.getItem("app_token")}`
             },
             body: JSON.stringify(log)
         })
@@ -40,7 +40,7 @@ export const LogProvider = (props) => {
         headers:{
             "Content-Type": "application/json",
             "Accept": "application/json",
-            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+            "Authorization": `Token ${localStorage.getItem("app_token")}`
         }, body: JSON.stringify(log)
     })
         // .then(setLogs)
@@ -50,7 +50,7 @@ export const LogProvider = (props) => {
     const getLogs = () => {
         return fetch("http://localhost:8000/logs", {
             headers:{
-                "Authorization": `Token ${localStorage.getItem("lu_token")}`
+                "Authorization": `Token ${localStorage.getItem("app_token")}`
             }
         })
         .then(response => response.json())
@@ -60,7 +60,7 @@ export const LogProvider = (props) => {
     const getSingleLog = (id) => {
         return fetch(`http://localhost:8000/logs/${id}`, {
           headers: {
-            Authorization: `Token ${localStorage.getItem("lu_token")}`,
+            Authorization: `Token ${localStorage.getItem("app_token")}`,
           },
         })
           .then((res) => res.json())
