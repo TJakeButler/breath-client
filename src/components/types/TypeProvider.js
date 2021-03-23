@@ -6,9 +6,6 @@ export const TypeProvider = (props) => {
     const [ types, setTypes ] = useState([]);
     const [singleType, setSingleType] = useState({});
 
-    // console.log("This is props", props)
-    // console.log("This is types", types)
-
     
     const getTypes = () => {
         return fetch("http://localhost:8000/types", {

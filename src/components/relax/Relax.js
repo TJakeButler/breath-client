@@ -85,7 +85,7 @@ const renderTime = (dimension, time) => {
                     createLog(log)
                         .then(res => res.json())
                         .then((log) => history.push(`/logs`))
-                        .then(console.log("Create Log Button Clicked", log))
+                        
                 }}
                 className="btn btn-primary">Create Breath Log</button>  
 </div>

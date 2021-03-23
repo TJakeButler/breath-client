@@ -16,7 +16,7 @@ export const JournalForm = (props) => {
         .then(setCurrentJournal)
         
     }, [])
-    console.log("This is your current Journal!!", currentJournal)
+    
 
     const changeJournalState = (domEvent) => {
         const newJournalState = Object.assign({}, currentJournal)

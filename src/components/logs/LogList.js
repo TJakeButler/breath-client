@@ -6,8 +6,6 @@ import { TypeContext } from "../types/TypeProvider.js";
 import { Bar } from 'react-chartjs-2';
 
 
-// import "./game.css";
-
 export const LogList = (props) => {
   const history = useHistory()
   const { logs, getLogs, setLogs, createLog, deleteLog } = useContext(LogContext);
@@ -21,9 +19,6 @@ export const LogList = (props) => {
     getTypes();
   }, []);
 
-console.log("This is props", props.match.params)
-console.log("This is logs", logs)
-console.log("This is TYPES", types)
 
 const relaxId = 1
 const relaxCount = logs.filter((obj) => obj.type.id === relaxId).length;
@@ -33,7 +28,7 @@ const morningId = 3
 const morningCount = logs.filter((obj) => obj.type.id === morningId).length;
 const rechargeId = 4
 const rechargeCount = logs.filter((obj) => obj.type.id === rechargeId).length;
-console.log("This is number of Relax", relaxCount)
+
   return (
     <article className="logs">
       <h1>
@@ -83,7 +78,7 @@ console.log("This is number of Relax", relaxCount)
                       }}
                       />
       {logs.map((log) => {
-        console.log("This is mapping over the logs", log.id)
+        
         return (
           
           <section key={`game--${log.id}`} className="game">

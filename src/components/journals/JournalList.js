@@ -17,7 +17,7 @@ export const JournalList = (props) => {
   useEffect(() => {
     getJournals();
   }, []);
-console.log("This is journals", journals)
+
   return (
     <article className="types">
       <header>
