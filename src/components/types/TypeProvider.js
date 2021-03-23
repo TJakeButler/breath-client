@@ -13,7 +13,7 @@ export const TypeProvider = (props) => {
     const getTypes = () => {
         return fetch("http://localhost:8000/types", {
             headers:{
-                "Authorization": `Token ${localStorage.getItem("lu_token")}`
+                "Authorization": `Token ${localStorage.getItem("app_token")}`
             }
         })
         .then(response => response.json())
@@ -23,7 +23,7 @@ export const TypeProvider = (props) => {
     const getSingleType = (id) => {
         return fetch(`http://localhost:8000/types/${id}`, {
           headers: {
-            Authorization: `Token ${localStorage.getItem("lu_token")}`,
+            Authorization: `Token ${localStorage.getItem("app_token")}`,
           },
         })
           .then((res) => res.json())

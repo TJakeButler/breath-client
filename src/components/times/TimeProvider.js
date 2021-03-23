@@ -6,14 +6,10 @@ export const TimeProvider = (props) => {
     const [ times, setTimes ] = useState([]);
     const [singleTime, setSingleTime] = useState({});
 
-    // console.log("This is props", props)
-    // console.log("This is times", times)
-
-    
     const getTimes = () => {
         return fetch("http://localhost:8000/times", {
             headers:{
-                "Authorization": `Token ${localStorage.getItem("lu_token")}`
+                "Authorization": `Token ${localStorage.getItem("app_token")}`
             }
         })
         .then(response => response.json())
@@ -23,7 +19,7 @@ export const TimeProvider = (props) => {
     const getSingleTime = (id) => {
         return fetch(`http://localhost:8000/times/${id}`, {
           headers: {
-            Authorization: `Token ${localStorage.getItem("lu_token")}`,
+            Authorization: `Token ${localStorage.getItem("app_token")}`,
           },
         })
           .then((res) => res.json())

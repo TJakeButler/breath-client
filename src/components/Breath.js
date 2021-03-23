@@ -8,7 +8,7 @@ import { Register } from "./auth/Register"
 export const Breath = () => (
     <>
         <Route render={() => {
-            if (localStorage.getItem("lu_token")) {
+            if (localStorage.getItem("app_token")) {
                 return <>
                     <Route render={NavBar} />
                     <Route render={props => <ApplicationViews {...props} />} />
