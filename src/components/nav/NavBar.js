@@ -4,17 +4,20 @@ import { Link } from "react-router-dom"
 
 export const NavBar = (props) => {
     return (
-        <ul className="navbar">
-            <li className="navbar__item">
-                <Link className="nav-link" to="/">Home</Link>
+        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <Link class="nav-link" to="/">Home</Link>
             </li>
-            <li className="navbar__item">
-            <Link className="nav-link" to="/logs">Your Profile</Link>
+
+            <li class="nav-item active">
+            <Link class="nav-link" to="/logs">Your Profile</Link>
             </li>
             {
                 (localStorage.getItem("app_token") !== null) ?
-                    <li className="nav-item">
-                        <button className="nav-link fakeLink"
+                    <li class="nav-item active">
+                        <button type="button" class="btn btn-secondary btn-lg"
                             onClick={() => {
                                 localStorage.removeItem("app_token")
                                 props.history.push({ pathname: "/" })
@@ -30,5 +33,7 @@ export const NavBar = (props) => {
                         </li>
                     </>
             }        </ul>
+            </nav>
     )
 }
+

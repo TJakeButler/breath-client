@@ -53,7 +53,7 @@ export const Register = (props) => {
             </dialog>
 
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Register an account</h1>
+                <h1 className="h3 mb-3 font-weight-normal">Register for Let's Breathe</h1>
                 <fieldset>
                     <label htmlFor="firstName"> First Name </label>
                     <input ref={firstName} type="text" name="firstName" className="form-control" placeholder="First name" required autoFocus />
@@ -75,13 +75,13 @@ export const Register = (props) => {
                     <input ref={verifyPassword} type="password" name="verifyPassword" className="form-control" placeholder="Verify password" required />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="verifyPassword"> Bio </label>
-                    <textarea ref={bio} name="bio" className="form-control" placeholder="Let other gamers know a little bit about you..." />
+                    <label htmlFor="verifyPassword"> Let's Breathe Bio </label>
+                    <textarea ref={bio} name="bio" className="form-control" placeholder="Tell us why you are using this app..." />
                 </fieldset>
                 <fieldset style={{
                     textAlign: "center"
                 }}>
-                    <button className="btn btn-1 btn-sep icon-send" type="submit">Register</button>
+                    <button type="button" class="btn btn-primary" type="submit">Register</button>
                 </fieldset>
             </form>
             <section className="link--register">

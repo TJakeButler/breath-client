@@ -31,7 +31,7 @@ export const TypeList = (props) => {
             </div>
             <div className="game__skillLevel">Exhale for {type.exhale} seconds</div>
             <button
-          className="btn btn-2 btn-sep icon-create"
+          type="button" class="btn btn-primary"
           onClick={() => {
             props.history.push({ pathname: `/types/${type.id}` });
           }}

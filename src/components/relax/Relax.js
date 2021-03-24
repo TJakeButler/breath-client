@@ -64,9 +64,9 @@ const renderTime = (dimension, time) => {
     You will then hold your breath for {singleType.hold} seconds
     Next you will exhale for {singleType.exhale} seconds
     Good job keep doing that for X amount of time
-    <button onClick={() => { {changeLogState(1)}}}>1:00</button>
-    <button onClick={() => { {changeLogState(2)}}}>2:00</button>
-    <button onClick={() => { {changeLogState(3)}}}>3:00</button>
+    <button type="button" class="btn btn-secondary" onClick={() => { {changeLogState(1)}}}>1:00</button>
+    <button type="button" class="btn btn-secondary" onClick={() => { {changeLogState(2)}}}>2:00</button>
+    <button type="button" class="btn btn-secondary" onClick={() => { {changeLogState(3)}}}>3:00</button>
     
                 <button type="submit"
                 onClick={evt => {
@@ -106,7 +106,7 @@ const renderTime = (dimension, time) => {
       </CountdownCircleTimer>
     </div>
     <div className="button-wrapper">
-        <button onClick={() => setKey(prevKey => prevKey + 1)}>
+        <button type="button" class="btn btn-info" onClick={() => setKey(prevKey => prevKey + 1)}>
           Restart Timer
         </button>
       </div>
