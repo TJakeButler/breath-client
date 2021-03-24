@@ -94,11 +94,11 @@ const rechargeCount = logs.filter((obj) => obj.type.id === rechargeId).length;
             </div>
             <div className="game__skillLevel">Amount of time breathing was done for {log.time.minutes} minutes</div>
 
-            <button className = "deleteLog" onClick = {() => {
+            <button type="button" class="btn btn-primary"onClick = {() => {
                             deleteLog(log.id)
                         }}>Delete Log</button>
 
-            <button className = "editLog" onClick = {() => {
+            <button type="button" class="btn btn-secondary"onClick = {() => {
                             history.push(`/logs/forms/${log.id}`)
                         }}>Edit Journal</button>
           </section>

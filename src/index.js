@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import "bootswatch/dist/minty/bootstrap.min.css";
+// TODO: Note: Replace ^[theme]^ (examples: darkly, slate, cosmo, spacelab, and superhero. See https://bootswatch.com/ for current theme names.)
 import './index.css';
 import {Breath} from './components/Breath.js';
 import reportWebVitals from './reportWebVitals';

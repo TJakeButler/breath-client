@@ -28,11 +28,11 @@ export const JournalForm = (props) => {
             <h2 className = "journalForm__title">How did you feel about that breath session</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor = "journal">Entry:</label>
-                    <textarea name = "journal" required className = "form-control" value = {currentJournal.journal} onChange={changeJournalState} />
+                    <label for="exampleTextarea" htmlFor = "journal">Entry:</label>
+                    <textarea class="form-control" id="exampleTextarea" rows="3" name = "journal" required className = "form-control" value = {currentJournal.journal} onChange={changeJournalState} />
                 </div>
             </fieldset>
-            <button type = "submit"
+            <button type="button" class="btn btn-success" type = "submit"
                 onClick = {evt => {
                     evt.preventDefault()
                     const journal = {
@@ -46,7 +46,7 @@ export const JournalForm = (props) => {
                     editLog(journal)
                         .then(() => history.push("/logs"))
                 }}
-                className= "journalSaveButton">Add Journal Entry</button>
+                >Add Journal Entry</button>
         </form>
     )
 }
