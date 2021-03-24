@@ -13,11 +13,21 @@ export const Relax = (props) => {
   const {getSingleType, singleType } = useContext(TypeContext);
   const {createLog} = useContext(LogContext);
   const {times, getTimes} = useContext(TimeContext);
-  const [formPost, setFormPost] = useState({})
+  const [inhalePLay, setInhalePLay] = useState(true)
+  const [holdPlay, setHoldPlay] = useState(false)
+  const [exhalePlay, setExhalePlay] = useState(false)
   const [key, setKey] = useState(0);
+  const [breathKey, setBreathKey] = useState(0);
+  
 
+// Possible solution for handling state of breathing circles
+  // const [currentIndex, setCurrentIndex] = useState(0);
+
+  
+
+
+  
 const timerProps = {
-  isPlaying: true,
   size: 120,
   strokeWidth: 6
 };
@@ -57,6 +67,7 @@ const renderTime = (dimension, time) => {
 }
 
   return (<>
+
   <div>
     <h1>{singleType.name}</h1>
     This is a {singleType.name} Breathing Technique
@@ -93,9 +104,12 @@ const renderTime = (dimension, time) => {
 <div>
 
 </div>
+
+
 <div className="DeepBreath">
     <CountdownCircleTimer
         {...timerProps}
+        isPlaying={true}
         key={key}
         colors={[["#EF798A"]]}
         duration={currentLog.time * 60}
@@ -110,42 +124,65 @@ const renderTime = (dimension, time) => {
           Restart Timer
         </button>
       </div>
+      {inhalePLay && 
 <div className="DeepBreath">
       <CountdownCircleTimer
         {...timerProps}
-        key={key}
+        isPlaying={inhalePLay}
+        key={breathKey}
         colors={[["#218380"]]}
         duration={singleType.inhale}
         initialRemainingTime={singleType.inhale}
-        onComplete={() => [true, 1000]}
+        onComplete={() => {
+          setHoldPlay(true)
+          setInhalePLay(false)
+          
+        }}
       >
         {renderTime("Inhale", singleType.inhale)}
       </CountdownCircleTimer>
     </div>
-<div className="DeepBreath">
+}
+    
+        {holdPlay && 
+        <div className="DeepBreath">
       <CountdownCircleTimer
         {...timerProps}
-        key={key}
-        colors={[["#218380"]]}
-        duration={singleType.exhale}
-        initialRemainingTime={singleType.exhale}
-        onComplete={() => [true, 1000]}
-      >
-        {renderTime("Exhale", singleType.exhale)}
-      </CountdownCircleTimer>
-    </div>
-<div className="DeepBreath">
-      <CountdownCircleTimer
-        {...timerProps}
-        key={key}
+        isPlaying={holdPlay}
+        key={breathKey}
         colors={[["#218380"]]}
         duration={singleType.hold}
         initialRemainingTime={singleType.hold}
-        onComplete={() => [true, 1000]}
+        onComplete={() => {
+          setExhalePlay(true)
+          setHoldPlay(false)
+        }}
       >
         {renderTime("Hold", singleType.hold)}
       </CountdownCircleTimer>
     </div>
+      }
+
+{exhalePlay && 
+<div className="DeepBreath">
+      <CountdownCircleTimer
+        {...timerProps}
+        isPlaying={exhalePlay}
+        key={breathKey}
+        colors={[["#218380"]]}
+        duration={singleType.exhale}
+        initialRemainingTime={singleType.exhale}
+        onComplete={() => {
+          setBreathKey(breathKey + 1)
+          setInhalePLay(true)
+          setExhalePlay(false)
+        }}
+      >
+        {renderTime("Exhale", singleType.exhale)}
+      </CountdownCircleTimer>
+    </div>
+}
+
       
     </>
   )
