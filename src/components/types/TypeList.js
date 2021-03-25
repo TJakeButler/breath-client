@@ -13,23 +13,31 @@ export const TypeList = (props) => {
   
 
   return (
-    <article className="types">
+    <article className="types" >
       <h1>
-        This is Type List
+        Welcome to Let's Breathe
       </h1>
+      <h3>
+        Choose a breathing pattern below
+      </h3>
       {types.map((type) => {
         return (
-          <section key={`game--${type.id}`} className="game">
-            <h1 className="game__title">
-            Name of Breath - {type.name} 
+          <section style={{
+            padding: 1,
+            justifyContent: "center"
+          }}>
+            <h1>
+            {type.name} 
             </h1>
-            <div className="game__players">
-              Inhale for {type.inhale} seconds
+            <div class="text-primary">
+              <strong>Inhale for {type.inhale} seconds</strong>
             </div>
-            <div className="game__skillLevel">
-              Hold breath for {type.hold} seconds
+            <div class="text-secondary">
+              <strong>Hold breath for {type.hold} seconds</strong>
             </div>
-            <div className="game__skillLevel">Exhale for {type.exhale} seconds</div>
+            <div class="text-info">
+              <strong> Exhale for {type.exhale} seconds</strong>
+              </div>
             <button
           type="button" class="btn btn-primary"
           onClick={() => {
@@ -38,6 +46,7 @@ export const TypeList = (props) => {
         >
           Select this breath 
         </button>
+        <hr class="my-4"></hr>
           </section>
         );
       })}

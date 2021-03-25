@@ -83,7 +83,7 @@ const rechargeCount = logs.filter((obj) => obj.type.id === rechargeId).length;
           
           <section key={`game--${log.id}`} className="game">
             <h1 className="game__title">
-            The Breath Type You Selected: {log.type.name}  
+            Breath Type: {log.type.name}  
             {/* User Id of created log - {log.user.id}  */}
             </h1>
             <div className="game__players">

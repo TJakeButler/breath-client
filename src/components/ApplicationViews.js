@@ -10,6 +10,9 @@ import { LogList } from "./logs/LogList.js"
 import { Relax } from "./relax/Relax.js"
 import { TimeProvider } from "./times/TimeProvider.js"
 import { JournalForm } from "./journals/JournalForm.js"
+import { FaqList } from "./faq/FaqList.js"
+import { Stress } from "./faq/Stress.js"
+import { Anxiety } from "./faq/Anxiety.js"
 
 export const ApplicationViews = () => {
     return <>
@@ -24,6 +27,27 @@ export const ApplicationViews = () => {
                     
                 </Route>
             </TypeProvider>
+
+
+            <Route exact path="/faq" render={(props) => {
+                    return <FaqList {...props} />
+                }}>
+                    
+                </Route>
+            <Route exact path="/stress" render={(props) => {
+                    return <Stress {...props} />
+                }}>
+                    
+                </Route>
+
+            <Route exact path="/anxiety" render={(props) => {
+                    return <Anxiety {...props} />
+                }}>
+                    
+                </Route>
+
+
+
 
             <JournalProvider>  
             <TimeProvider>
