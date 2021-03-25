@@ -32,7 +32,7 @@ export const JournalForm = (props) => {
                     <textarea class="form-control" id="exampleTextarea" rows="3" name = "journal" required className = "form-control" value = {currentJournal.journal} onChange={changeJournalState} />
                 </div>
             </fieldset>
-            <button type="button" class="btn btn-success" type = "submit"
+            <button type="button" class="btn btn-secondary" type = "submit"
                 onClick = {evt => {
                     evt.preventDefault()
                     const journal = {

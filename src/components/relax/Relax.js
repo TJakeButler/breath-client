@@ -28,8 +28,8 @@ export const Relax = (props) => {
 
   
 const timerProps = {
-  size: 120,
-  strokeWidth: 6
+  size: 240,
+  strokeWidth: 12
 };
 
 const renderTime = (dimension, time) => {
@@ -47,7 +47,7 @@ const renderTime = (dimension, time) => {
     type: parseInt(params.id),
     journal: "",
     date: "",
-    time: 3
+    time: 1
 })
 
   
@@ -67,14 +67,114 @@ const renderTime = (dimension, time) => {
 }
 
   return (<>
-
-  <div>
-    <h1>{singleType.name}</h1>
-    This is a {singleType.name} Breathing Technique
+  <h1 class="display-3 text-primary"  style={{
+    display: "flex",
+    justifyContent: "center"
+  }}>{singleType.name}</h1>
+  <div style={{
+            display: "flex",
+            justifyContent: "center",
+            backgroundColor: "lightgoldenrodyellow"
+        }}>
+    
+    <strong>This is a {singleType.name} Breathing Technique
     You will inhale for {singleType.inhale} seconds
     You will then hold your breath for {singleType.hold} seconds
     Next you will exhale for {singleType.exhale} seconds
     Good job keep doing that for X amount of time
+    </strong>
+</div>
+<div style={{
+  display: "flex",
+  justifyContent: "center"
+}}>
+<div className="minuteTimer">
+    <CountdownCircleTimer
+        {...timerProps}
+        isPlaying={true}
+        key={key}
+        colors={[["#EF798A"]]}
+        duration={currentLog.time * 60}
+        initialRemainingTime={currentLog.time * 60}
+        onComplete={() => [true, 0]}
+      >
+        {renderTime("minutes", currentLog.time)}
+      </CountdownCircleTimer>
+    </div>
+    
+      {inhalePLay && 
+<div className="breathingTimer">
+      <CountdownCircleTimer
+        {...timerProps}
+        isPlaying={inhalePLay}
+        key={breathKey}
+        colors={[["#218380"]]}
+        duration={singleType.inhale}
+        initialRemainingTime={singleType.inhale}
+        onComplete={() => {
+          setHoldPlay(true)
+          setInhalePLay(false)
+          
+        }}
+      >
+        {renderTime("Inhale", singleType.inhale)}
+      </CountdownCircleTimer>
+    </div>
+}
+    
+        {holdPlay && 
+        <div className="breathingTimer">
+      <CountdownCircleTimer
+        {...timerProps}
+        isPlaying={holdPlay}
+        key={breathKey}
+        colors={[["#218380"]]}
+        duration={singleType.hold}
+        initialRemainingTime={singleType.hold}
+        onComplete={() => {
+          setExhalePlay(true)
+          setHoldPlay(false)
+        }}
+      >
+        {renderTime("Hold", singleType.hold)}
+      </CountdownCircleTimer>
+    </div>
+      }
+
+{exhalePlay && 
+<div className="breathingTimer">
+      <CountdownCircleTimer
+        {...timerProps}
+        isPlaying={exhalePlay}
+        key={breathKey}
+        colors={[["#218380"]]}
+        duration={singleType.exhale}
+        initialRemainingTime={singleType.exhale}
+        onComplete={() => {
+          setBreathKey(breathKey + 1)
+          setInhalePLay(true)
+          setExhalePlay(false)
+        }}
+      >
+        {renderTime("Exhale", singleType.exhale)}
+      </CountdownCircleTimer>
+    </div>
+    
+}
+</div>
+
+
+<div style={{
+  display: "flex",
+  justifyContent: "center"
+}}>
+        <button type="button" class="btn btn-info" onClick={() => {
+          setKey(prevKey => prevKey + 1)
+          setBreathKey(prevBreathKey => prevBreathKey +1)
+        }}>
+          Restart Timer
+        </button>
+      
     <button type="button" class="btn btn-secondary" onClick={() => { {changeLogState(1)}}}>1:00</button>
     <button type="button" class="btn btn-secondary" onClick={() => { {changeLogState(2)}}}>2:00</button>
     <button type="button" class="btn btn-secondary" onClick={() => { {changeLogState(3)}}}>3:00</button>
@@ -99,90 +199,8 @@ const renderTime = (dimension, time) => {
                         
                 }}
                 className="btn btn-primary">Create Breath Log</button>  
-</div>
-
-<div>
 
 </div>
-
-
-<div className="DeepBreath">
-    <CountdownCircleTimer
-        {...timerProps}
-        isPlaying={true}
-        key={key}
-        colors={[["#EF798A"]]}
-        duration={currentLog.time * 60}
-        initialRemainingTime={currentLog.time * 60}
-        onComplete={() => [true, 0]}
-      >
-        {renderTime("minutes", currentLog.time)}
-      </CountdownCircleTimer>
-    </div>
-    <div className="button-wrapper">
-        <button type="button" class="btn btn-info" onClick={() => setKey(prevKey => prevKey + 1)}>
-          Restart Timer
-        </button>
-      </div>
-      {inhalePLay && 
-<div className="DeepBreath">
-      <CountdownCircleTimer
-        {...timerProps}
-        isPlaying={inhalePLay}
-        key={breathKey}
-        colors={[["#218380"]]}
-        duration={singleType.inhale}
-        initialRemainingTime={singleType.inhale}
-        onComplete={() => {
-          setHoldPlay(true)
-          setInhalePLay(false)
-          
-        }}
-      >
-        {renderTime("Inhale", singleType.inhale)}
-      </CountdownCircleTimer>
-    </div>
-}
-    
-        {holdPlay && 
-        <div className="DeepBreath">
-      <CountdownCircleTimer
-        {...timerProps}
-        isPlaying={holdPlay}
-        key={breathKey}
-        colors={[["#218380"]]}
-        duration={singleType.hold}
-        initialRemainingTime={singleType.hold}
-        onComplete={() => {
-          setExhalePlay(true)
-          setHoldPlay(false)
-        }}
-      >
-        {renderTime("Hold", singleType.hold)}
-      </CountdownCircleTimer>
-    </div>
-      }
-
-{exhalePlay && 
-<div className="DeepBreath">
-      <CountdownCircleTimer
-        {...timerProps}
-        isPlaying={exhalePlay}
-        key={breathKey}
-        colors={[["#218380"]]}
-        duration={singleType.exhale}
-        initialRemainingTime={singleType.exhale}
-        onComplete={() => {
-          setBreathKey(breathKey + 1)
-          setInhalePLay(true)
-          setExhalePlay(false)
-        }}
-      >
-        {renderTime("Exhale", singleType.exhale)}
-      </CountdownCircleTimer>
-    </div>
-}
-
       
     </>
   )
