@@ -2,6 +2,8 @@
 
 <b style="font-size: 20px;"><i>...inhale...hold...exhale...</i></b>
 
+	[Demo of my App](https://www.youtube.com/watch?v=4G4TrGZt2So)
+
 ### Application Overview
 
 Let's Breathe is a simple breathing app that allows users to select from for distinct breathing patterns, users are given an on screen visualization for how to perform the inhalation, hold and exhalation patterns. The current iteration of the application allows users to create a breath log and edit a journal entry on that specific log. This app allows the user to have Full CRUD capabilities for managing previous breathing logs and journal entries.
