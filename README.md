@@ -2,7 +2,7 @@
 
 <b style="font-size: 20px;"><i>...inhale...hold...exhale...</i></b>
 
-	[Demo of my App](https://www.youtube.com/watch?v=4G4TrGZt2So)
+[Demo of my App](https://www.youtube.com/watch?v=4G4TrGZt2So)
 
 ### Application Overview
 
