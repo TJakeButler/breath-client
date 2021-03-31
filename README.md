@@ -1,6 +1,6 @@
 ## breath-client
 
-<b style="font-size: 20px;"><i>A peer-to-peer commodity sharing application!</i></b>
+<b style="font-size: 20px;"><i>...inhale...hold...exhale...</i></b>
 
 ### Application Overview
 
