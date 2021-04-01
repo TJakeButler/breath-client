@@ -3,7 +3,7 @@
 export const Anxiety = () => {
     return(<>
     <div class="jumbotron" style={{
-            margin: "5rem 2rem",
+            
             backgroundColor: "lightgoldenrodyellow"
         }}>
     <h1 class="display-3">Anxiety</h1>
@@ -21,11 +21,12 @@ export const Anxiety = () => {
         
     </p>
     <div>
-    <a href="https://www.psychiatrictimes.com/view/neurobiology-and-neurophysiology-breath-practices-psychiatric-care" target="_blank">https://www.psychiatrictimes.com/view/neurobiology-and-neurophysiology-breath-practices-psychiatric-care</a>
+    <a href="https://www.psychiatrictimes.com/view/neurobiology-and-neurophysiology-breath-practices-psychiatric-care" target="_blank"><strong>
+        https://www.psychiatrictimes.com/view/neurobiology-and-neurophysiology-breath-practices-psychiatric-care</strong></a>
     </div>
     
     <div>
-    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0022395607001033?via%3Dihub" target="_blank">https://www.sciencedirect.com/science/article/abs/pii/S0022395607001033?via%3Dihub</a>
+    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0022395607001033?via%3Dihub" target="_blank"><strong>https://www.sciencedirect.com/science/article/abs/pii/S0022395607001033?via%3Dihub</strong></a>
     </div>
 
     </div>

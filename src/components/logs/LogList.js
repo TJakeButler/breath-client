@@ -31,7 +31,9 @@ const rechargeCount = logs.filter((obj) => obj.type.id === rechargeId).length;
 
   return (
     <article className="logs">
-      <h1>
+      <h1 style={{
+        marginLeft: 400
+      }}>
         This is your log of past breaths
       </h1>
       <Bar
@@ -62,7 +64,7 @@ const rechargeCount = logs.filter((obj) => obj.type.id === rechargeId).length;
                     ]
                             }}
                       width={100}
-                      height={50}
+                      height={15}
                       options={{ maintainAspectRatio: true,
                         responsive: true,
                         scales: {
@@ -81,18 +83,24 @@ const rechargeCount = logs.filter((obj) => obj.type.id === rechargeId).length;
         
         return (
           
-          <section key={`game--${log.id}`} className="game">
-            <h1 className="game__title">
+          <section style={{
+            margin: 20
+          }}>
+            <h1 >
             Breath Type: {log.type.name}  
             {/* User Id of created log - {log.user.id}  */}
             </h1>
-            <div className="game__players">
-              Your journal entry: {log.journal}
+            <div class="lead" >
+              <strong>
+                Your journal entry: {log.journal}
+                </strong>
             </div>
-            <div className="game__skillLevel">
-              Date log was created on {log.date}
+            <div class="lead">
+              <strong>Date log was created on {log.date}</strong>
             </div>
-            <div className="game__skillLevel">Amount of time breathing was done for {log.time.minutes} minutes</div>
+            <div class="lead">
+              <strong>Amount of time breathing was done for {log.time.minutes} minutes</strong>
+              </div>
 
             <button type="button" class="btn btn-primary"onClick = {() => {
                             deleteLog(log.id)
@@ -101,6 +109,7 @@ const rechargeCount = logs.filter((obj) => obj.type.id === rechargeId).length;
             <button type="button" class="btn btn-secondary"onClick = {() => {
                             history.push(`/logs/forms/${log.id}`)
                         }}>Edit Journal</button>
+            <hr class="my-4"></hr>
           </section>
         );
       })}
