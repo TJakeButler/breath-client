@@ -5,7 +5,6 @@
 export const FaqList = () => {
 return(<>
 <div class="jumbotron" style={{
-            margin: "5rem 2rem",
             backgroundColor: "lightgoldenrodyellow"
         }}>
 <h1 class="display-3">FAQ's about breathing</h1>

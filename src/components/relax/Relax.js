@@ -28,7 +28,7 @@ export const Relax = (props) => {
 
   
 const timerProps = {
-  size: 240,
+  size: 300,
   strokeWidth: 12
 };
 
@@ -72,9 +72,9 @@ const renderTime = (dimension, time) => {
     justifyContent: "center"
   }}>{singleType.name}</h1>
   <div style={{
-            display: "flex",
-            justifyContent: "center",
-            backgroundColor: "lightgoldenrodyellow"
+            margin:20,
+            backgroundColor: "lightgoldenrodyellow",
+            
         }}>
     
     <strong>This is a {singleType.name} Breathing Technique
@@ -168,18 +168,18 @@ const renderTime = (dimension, time) => {
   display: "flex",
   justifyContent: "center"
 }}>
-        <button type="button" class="btn btn-info" onClick={() => {
+        <button type="button" class="btn btn-info btn-lg" onClick={() => {
           setKey(prevKey => prevKey + 1)
           setBreathKey(prevBreathKey => prevBreathKey +1)
         }}>
           Restart Timer
         </button>
       
-    <button type="button" class="btn btn-secondary" onClick={() => { {changeLogState(1)}}}>1:00</button>
-    <button type="button" class="btn btn-secondary" onClick={() => { {changeLogState(2)}}}>2:00</button>
-    <button type="button" class="btn btn-secondary" onClick={() => { {changeLogState(3)}}}>3:00</button>
+    <button type="button" class="btn btn-secondary btn-lg" onClick={() => { {changeLogState(1)}}}>1:00</button>
+    <button type="button" class="btn btn-secondary btn-lg" onClick={() => { {changeLogState(2)}}}>2:00</button>
+    <button type="button" class="btn btn-secondary btn-lg" onClick={() => { {changeLogState(3)}}}>3:00</button>
     
-                <button type="submit"
+                <button type="submit" 
                 onClick={evt => {
                   
                     // Prevent form from being submitted
@@ -198,7 +198,7 @@ const renderTime = (dimension, time) => {
                         .then((log) => history.push(`/logs`))
                         
                 }}
-                className="btn btn-primary">Create Breath Log</button>  
+                className="btn btn-primary btn-lg">Create Breath Log</button>  
 
 </div>
       

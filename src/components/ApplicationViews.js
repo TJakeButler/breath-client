@@ -17,7 +17,6 @@ import { Anxiety } from "./faq/Anxiety.js"
 export const ApplicationViews = () => {
     return <>
         <main style={{
-            margin: "5rem 2rem",
             backgroundColor: "lightgoldenrodyellow"
         }}>
             <TypeProvider>

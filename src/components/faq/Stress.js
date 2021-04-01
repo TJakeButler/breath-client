@@ -3,7 +3,7 @@
 export const Stress = () => {
     return(<>
     <div class="jumbotron" style={{
-            margin: "5rem 2rem",
+    
             backgroundColor: "lightgoldenrodyellow"
         }}>
     <h1 class="display-3">Stress</h1>
@@ -21,11 +21,11 @@ export const Stress = () => {
         
     </p>
     <div>
-    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5455070/" target="_blank">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5455070/</a>
+    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5455070/" target="_blank"><strong>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5455070/</strong></a>
     </div>
     
     <div>
-    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0193953X13000026" target="_blank">https://www.sciencedirect.com/science/article/abs/pii/S0193953X13000026</a>
+    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0193953X13000026" target="_blank"><strong>https://www.sciencedirect.com/science/article/abs/pii/S0193953X13000026</strong></a>
     </div>
 
     </div>

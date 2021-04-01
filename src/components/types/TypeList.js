@@ -13,7 +13,10 @@ export const TypeList = (props) => {
   
 
   return (
-    <article className="types" >
+    <article className="types" style={{
+      marginLeft: 50
+    }}
+    >
       <h1>
         Welcome to Let's Breathe
       </h1>
@@ -39,7 +42,7 @@ export const TypeList = (props) => {
               <strong> Exhale for {type.exhale} seconds</strong>
               </div>
             <button
-          type="button" class="btn btn-primary"
+          type="button" class="btn btn-primary btn-lg"
           onClick={() => {
             props.history.push({ pathname: `/types/${type.id}` });
           }}

@@ -25,14 +25,18 @@ export const JournalForm = (props) => {
     }
     return (
         <form className = "journalForm">
-            <h2 className = "journalForm__title">How did you feel about that breath session</h2>
+            <h2  style ={{
+                marginLeft: 100
+            }}className = "journalForm__title">How did you feel about that breath session?</h2>
             <fieldset>
-                <div className="form-group">
-                    <label for="exampleTextarea" htmlFor = "journal">Entry:</label>
+                <div className="form-group" style={{
+                    margin: 50
+                }}>
+                    <label for="exampleTextarea" htmlFor = "journal"><strong>Your journal entry:</strong></label>
                     <textarea class="form-control" id="exampleTextarea" rows="3" name = "journal" required className = "form-control" value = {currentJournal.journal} onChange={changeJournalState} />
                 </div>
             </fieldset>
-            <button type="button" class="btn btn-secondary" type = "submit"
+            <button type="button" class="btn btn-secondary btn-lg" type = "submit"
                 onClick = {evt => {
                     evt.preventDefault()
                     const journal = {
